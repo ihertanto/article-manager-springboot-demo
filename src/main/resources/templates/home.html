@@ -13,6 +13,7 @@
             <h5 class="card-title" th:text="${article.title}">Judul</h5>
             <p class="card-text" th:text="${article.content}">Isi artikel...</p>
             <p class="text-muted" th:text="${#temporals.format(article.createdAt, 'dd-MM-yyyy HH:mm')}"></p>
+            <a th:href="@{/article/{id}(id=${article.id})}" class="stretched-link"></a>
         </div>
     </div>
 </div>

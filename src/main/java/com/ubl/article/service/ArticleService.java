@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ArticleService {
@@ -16,6 +17,10 @@ public class ArticleService {
 
   public List<Article> findAll() {
     return articleRepository.findAll();
+  }
+  
+  public Optional<Article> findById(Long id) {
+    return articleRepository.findById(id);
   }
 
   public Article save(String title, String content) {

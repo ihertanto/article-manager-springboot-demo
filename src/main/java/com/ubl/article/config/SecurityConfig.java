@@ -26,8 +26,9 @@ public class SecurityConfig {
             .frameOptions(frame -> frame.sameOrigin())
         )
         .authorizeHttpRequests(auth -> auth
-            .requestMatchers("/", "/login").permitAll()
+            .requestMatchers("/", "/login", "/article/**").permitAll()
             .requestMatchers(PathRequest.toH2Console()).permitAll()
+            .requestMatchers("/error").permitAll()
             .requestMatchers("/admin/**").hasRole("ADMIN")
             .anyRequest().authenticated()
         )
