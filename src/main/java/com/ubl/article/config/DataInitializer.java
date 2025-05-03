@@ -22,6 +22,13 @@ public class DataInitializer {
                 User admin = new User("admin", encodedPassword, "ADMIN");
                 userRepository.save(admin);
             }
+            
+            // Tambah User api jika belum ada
+            if (userRepository.findByUsername("apiuser").isEmpty()) {
+                String encodedPassword = passwordEncoder.encode("password");
+                User apiuser = new User("apiuser", encodedPassword, "API");
+                userRepository.save(apiuser);
+            }
 
             // Tambah beberapa artikel jika belum ada
             if (articleRepository.count() == 0) {
